@@ -15,6 +15,6 @@ public class CreateTests
         var xmlText = doc.XmlText("xml-text");
 
         // Assert
-        Assert.That(xmlText.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(xmlText.Handle, Is.GreaterThan(0));
     }
 }

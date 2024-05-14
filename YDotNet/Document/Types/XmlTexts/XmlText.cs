@@ -30,7 +30,7 @@ public class XmlText : Branch
                 XmlTextChannel.ObserveCallback callback = (_, eventHandle) =>
                     action(new XmlTextEvent(eventHandle, Doc));
 
-                return (XmlTextChannel.Observe(xmlText, nint.Zero, callback), callback);
+                return (XmlTextChannel.Observe(xmlText, 0, callback), callback);
             },
             XmlTextChannel.Unobserve);
     }
@@ -134,7 +134,7 @@ public class XmlText : Branch
 
         var handle = XmlTextChannel.GetAttribute(Handle, transaction.Handle, unsafeName.Handle);
 
-        return handle != nint.Zero ? MemoryReader.ReadStringAndDestroy(handle) : null;
+        return handle != 0 ? MemoryReader.ReadStringAndDestroy(handle) : null;
     }
 
     /// <summary>
@@ -218,7 +218,7 @@ public class XmlText : Branch
 
         var handle = XmlChannel.PreviousSibling(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -236,7 +236,7 @@ public class XmlText : Branch
 
         var handle = XmlChannel.NextSibling(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -272,6 +272,6 @@ public class XmlText : Branch
 
         var handle = StickyIndexChannel.FromIndex(Handle, transaction.Handle, index, (sbyte)associationType);
 
-        return handle != nint.Zero ? new StickyIndex(handle) : null;
+        return handle != 0 ? new StickyIndex(handle) : null;
     }
 }

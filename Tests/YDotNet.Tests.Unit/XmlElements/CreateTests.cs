@@ -15,6 +15,6 @@ public class CreateTests
         var xmlElement = doc.XmlElement("xml-element");
 
         // Assert
-        Assert.That(xmlElement.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(xmlElement.Handle, Is.GreaterThan(0));
     }
 }

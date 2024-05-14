@@ -1,5 +1,5 @@
-using System.Transactions;
 using YDotNet.Document.Events;
+using YDotNet.Document.Transactions;
 using YDotNet.Document.Types.Branches;
 using YDotNet.Document.UndoManagers.Events;
 using YDotNet.Infrastructure;
@@ -34,7 +34,7 @@ public class UndoManager : UnmanagedResource
                 UndoManagerChannel.ObserveAddedCallback callback =
                     (_, handle) => action(new UndoEvent(MemoryReader.ReadStruct<UndoEventNative>(handle)));
 
-                return (UndoManagerChannel.ObserveAdded(Handle, nint.Zero, callback), callback);
+                return (UndoManagerChannel.ObserveAdded(Handle, 0, callback), callback);
             },
             (owner, s) => UndoManagerChannel.UnobserveAdded(owner, s));
 
@@ -46,7 +46,7 @@ public class UndoManager : UnmanagedResource
                 UndoManagerChannel.ObservePoppedCallback callback =
                     (_, handle) => action(new UndoEvent(MemoryReader.ReadStruct<UndoEventNative>(handle)));
 
-                return (UndoManagerChannel.ObservePopped(Handle, nint.Zero, callback), callback);
+                return (UndoManagerChannel.ObservePopped(Handle, 0, callback), callback);
             },
             (owner, s) => UndoManagerChannel.UnobservePopped(owner, s));
 #pragma warning restore CA1806 // Do not ignore method results

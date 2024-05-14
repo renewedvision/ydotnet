@@ -24,12 +24,12 @@ public class EventKeyChange
             _ => throw new NotSupportedException($"The value \"{native.TagNative}\" for {nameof(EventKeyChangeTagNative)} is not supported."),
         };
 
-        if (native.OldValue != nint.Zero)
+        if (native.OldValue != 0)
         {
             OldValue = new Output(native.OldValue, doc, true);
         }
 
-        if (native.NewValue != nint.Zero)
+        if (native.NewValue != 0)
         {
             NewValue = new Output(native.NewValue, doc, false);
         }

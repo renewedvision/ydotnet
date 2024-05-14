@@ -17,7 +17,7 @@ internal readonly struct EventChangeNative
     {
         get
         {
-            if (Values == nint.Zero)
+            if (Values == 0)
             {
                 return Array.Empty<nint>();
             }

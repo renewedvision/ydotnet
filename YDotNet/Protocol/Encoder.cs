@@ -65,7 +65,7 @@ public abstract class Encoder
         }
 
         await WriteVarUintAsync((ulong)value.Length, ct).ConfigureAwait(false);
-        await WriteBytesAsync(value, ct).ConfigureAwait(false);
+        await WriteBytesAsync(new ArraySegment<byte>(value), ct).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public abstract class Encoder
 
         async Task WriteCoreAsync(string value, byte[] buffer, CancellationToken ct)
         {
-            var length = Encoding.UTF8.GetBytes(value, buffer);
+            var length = Encoding.UTF8.GetBytes(value.AsSpan(), buffer);
 
             await WriteVarUintAsync((ulong)length, ct).ConfigureAwait(false);
             await WriteBytesAsync(new ArraySegment<byte>(buffer, 0, length), ct).ConfigureAwait(false);

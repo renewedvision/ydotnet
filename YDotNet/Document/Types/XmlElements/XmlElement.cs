@@ -29,7 +29,7 @@ public class XmlElement : Branch
                 XmlElementChannel.ObserveCallback callback = (_, eventHandle) =>
                     action(new XmlElementEvent(eventHandle, Doc));
 
-                return (XmlElementChannel.Observe(xmlElement, nint.Zero, callback), callback);
+                return (XmlElementChannel.Observe(xmlElement, 0, callback), callback);
             },
             XmlElementChannel.Unobserve);
     }
@@ -48,7 +48,7 @@ public class XmlElement : Branch
 
             var handle = XmlElementChannel.Tag(Handle);
 
-            return handle != nint.Zero ? MemoryReader.ReadStringAndDestroy(handle) : null;
+            return handle != 0 ? MemoryReader.ReadStringAndDestroy(handle) : null;
         }
     }
 
@@ -116,7 +116,7 @@ public class XmlElement : Branch
 
         var handle = XmlElementChannel.GetAttribute(Handle, transaction.Handle, unsafeName.Handle);
 
-        return handle != nint.Zero ? MemoryReader.ReadStringAndDestroy(handle) : null;
+        return handle != 0 ? MemoryReader.ReadStringAndDestroy(handle) : null;
     }
 
     /// <summary>
@@ -211,7 +211,7 @@ public class XmlElement : Branch
 
         var handle = XmlElementChannel.Get(Handle, transaction.Handle, index);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -230,7 +230,7 @@ public class XmlElement : Branch
 
         var handle = XmlChannel.PreviousSibling(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -249,7 +249,7 @@ public class XmlElement : Branch
 
         var handle = XmlChannel.NextSibling(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -267,7 +267,7 @@ public class XmlElement : Branch
 
         var handle = XmlElementChannel.FirstChild(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -285,7 +285,7 @@ public class XmlElement : Branch
 
         var handle = XmlElementChannel.Parent(Handle, transaction.Handle);
 
-        return handle != nint.Zero ? Doc.GetXmlElement(handle, isDeleted: false) : null;
+        return handle != 0 ? Doc.GetXmlElement(handle, isDeleted: false) : null;
     }
 
     /// <summary>

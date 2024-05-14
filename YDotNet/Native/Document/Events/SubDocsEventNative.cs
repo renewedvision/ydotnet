@@ -20,7 +20,7 @@ internal readonly struct SubDocsEventNative
 
     public nint[] Added()
     {
-        if (AddedHandle == nint.Zero || AddedLength == 0)
+        if (AddedHandle == 0 || AddedLength == 0)
         {
             return Array.Empty<nint>();
         }
@@ -30,7 +30,7 @@ internal readonly struct SubDocsEventNative
 
     public nint[] Removed()
     {
-        if (RemovedHandle == nint.Zero || RemovedLength == 0)
+        if (RemovedHandle == 0 || RemovedLength == 0)
         {
             return Array.Empty<nint>();
         }
@@ -40,7 +40,7 @@ internal readonly struct SubDocsEventNative
 
     public nint[] Loaded()
     {
-        if (LoadedHandle == nint.Zero || LoadedLength == 0)
+        if (LoadedHandle == 0 || LoadedLength == 0)
         {
             return Array.Empty<nint>();
         }

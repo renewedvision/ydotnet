@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/ArgumentNullExceptionHelper.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/EncodingExtensions.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/IsExternalInit.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/KeyValuePairExtensions.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/NIntExtensions.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/RandomHelper.cs" Visible="true" />
+    <Compile Include="$(MSBuildThisFileDirectory)../ext/StreamExtensions.cs" Visible="true" />
+  </ItemGroup>
+</Project>

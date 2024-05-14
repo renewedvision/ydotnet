@@ -75,7 +75,7 @@ public class Doc : UnmanagedResource
                 DocChannel.ObserveClearCallback callback =
                     (_, eventDoc) => action(new ClearEvent(GetDoc(eventDoc, isDeleted: false)));
 
-                return (DocChannel.ObserveClear(doc, nint.Zero, callback), callback);
+                return (DocChannel.ObserveClear(doc, 0, callback), callback);
             },
             (doc, s) => DocChannel.UnobserveClear(doc, s));
 
@@ -87,7 +87,7 @@ public class Doc : UnmanagedResource
                 DocChannel.ObserveUpdatesCallback callback =
                     (_, length, data) => action(new UpdateEvent(UpdateEventNative.From(length, data)));
 
-                return (DocChannel.ObserveUpdatesV1(Handle, nint.Zero, callback), callback);
+                return (DocChannel.ObserveUpdatesV1(Handle, 0, callback), callback);
             },
             (doc, s) => DocChannel.UnobserveUpdatesV1(doc, s));
 
@@ -99,7 +99,7 @@ public class Doc : UnmanagedResource
                 DocChannel.ObserveUpdatesCallback callback =
                     (_, length, data) => action(new UpdateEvent(UpdateEventNative.From(length, data)));
 
-                return (DocChannel.ObserveUpdatesV2(Handle, nint.Zero, callback), callback);
+                return (DocChannel.ObserveUpdatesV2(Handle, 0, callback), callback);
             },
             (doc, s) => DocChannel.UnobserveUpdatesV2(doc, s));
 
@@ -112,7 +112,7 @@ public class Doc : UnmanagedResource
                     (_, ev) => action(
                         new AfterTransactionEvent(MemoryReader.ReadStruct<AfterTransactionEventNative>(ev)));
 
-                return (DocChannel.ObserveAfterTransaction(doc, nint.Zero, callback), callback);
+                return (DocChannel.ObserveAfterTransaction(doc, 0, callback), callback);
             },
             (doc, s) => DocChannel.UnobserveAfterTransaction(doc, s));
 
@@ -124,7 +124,7 @@ public class Doc : UnmanagedResource
                 DocChannel.ObserveSubdocsCallback callback =
                     (_, ev) => action(new SubDocsEvent(MemoryReader.ReadStruct<SubDocsEventNative>(ev), this));
 
-                return (DocChannel.ObserveSubDocs(doc, nint.Zero, callback), callback);
+                return (DocChannel.ObserveSubDocs(doc, 0, callback), callback);
             },
             (doc, s) => DocChannel.UnobserveSubDocs(doc, s));
     }
@@ -211,7 +211,7 @@ public class Doc : UnmanagedResource
 
             var stringHandle = DocChannel.CollectionId(Handle);
 
-            if (stringHandle == nint.Zero)
+            if (stringHandle == 0)
             {
                 return null;
             }
@@ -349,7 +349,7 @@ public class Doc : UnmanagedResource
 
         var handle = DocChannel.WriteTransaction(Handle, (uint)(origin?.Length ?? 0), origin);
 
-        if (handle == nint.Zero)
+        if (handle == 0)
         {
             ThrowHelper.PendingTransaction();
             return default!;
@@ -369,7 +369,7 @@ public class Doc : UnmanagedResource
 
         var handle = DocChannel.ReadTransaction(Handle);
 
-        if (handle == nint.Zero)
+        if (handle == 0)
         {
             ThrowHelper.PendingTransaction();
             return default!;

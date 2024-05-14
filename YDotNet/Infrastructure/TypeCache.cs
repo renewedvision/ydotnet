@@ -7,7 +7,7 @@ internal class TypeCache
     public T GetOrAdd<T>(nint handle, Func<nint, T> factory)
         where T : UnmanagedResource
     {
-        if (handle == nint.Zero)
+        if (handle == 0)
         {
             throw new ArgumentException("Cannot create object for null handle.", nameof(handle));
         }

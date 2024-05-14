@@ -241,7 +241,7 @@ public class Transaction : UnmanagedResource
             (uint)snapshot.Length,
             out var length);
 
-        return handle != nint.Zero ? MemoryReader.ReadAndDestroyBytes(handle, length) : null;
+        return handle != 0 ? MemoryReader.ReadAndDestroyBytes(handle, length) : null;
     }
 
     /// <summary>
@@ -278,7 +278,7 @@ public class Transaction : UnmanagedResource
             (uint)snapshot.Length,
             out var length);
 
-        return handle != nint.Zero ? MemoryReader.ReadAndDestroyBytes(handle, length) : null;
+        return handle != 0 ? MemoryReader.ReadAndDestroyBytes(handle, length) : null;
     }
 
     /// <summary>
@@ -294,7 +294,7 @@ public class Transaction : UnmanagedResource
     {
         var handle = GetWithKind(name, BranchKind.Array);
 
-        return handle != nint.Zero ? doc.GetArray(handle, isDeleted: false) : null;
+        return handle != 0 ? doc.GetArray(handle, isDeleted: false) : null;
     }
 
     /// <summary>
@@ -310,7 +310,7 @@ public class Transaction : UnmanagedResource
     {
         var handle = GetWithKind(name, BranchKind.Map);
 
-        return handle != nint.Zero ? doc.GetMap(handle, isDeleted: false) : null;
+        return handle != 0 ? doc.GetMap(handle, isDeleted: false) : null;
     }
 
     /// <summary>
@@ -326,7 +326,7 @@ public class Transaction : UnmanagedResource
     {
         var handle = GetWithKind(name, BranchKind.Text);
 
-        return handle != nint.Zero ? doc.GetText(handle, isDeleted: false) : null;
+        return handle != 0 ? doc.GetText(handle, isDeleted: false) : null;
     }
 
     /// <summary>
@@ -343,7 +343,7 @@ public class Transaction : UnmanagedResource
     {
         var handle = GetWithKind(name, BranchKind.XmlElement);
 
-        return handle != nint.Zero ? doc.GetXmlElement(handle, isDeleted: false) : null;
+        return handle != 0 ? doc.GetXmlElement(handle, isDeleted: false) : null;
     }
 
     /// <summary>
@@ -359,7 +359,7 @@ public class Transaction : UnmanagedResource
     {
         var handle = GetWithKind(name, BranchKind.XmlText);
 
-        return handle != nint.Zero ? doc.GetXmlText(handle, isDeleted: false) : null;
+        return handle != 0 ? doc.GetXmlText(handle, isDeleted: false) : null;
     }
 
     private nint GetWithKind(string name, BranchKind expectedKind)
@@ -367,16 +367,16 @@ public class Transaction : UnmanagedResource
         using var unsafeName = MemoryWriter.WriteUtf8String(name);
 
         var branchHandle = TransactionChannel.Get(Handle, unsafeName.Handle);
-        if (branchHandle == nint.Zero)
+        if (branchHandle == 0)
         {
-            return nint.Zero;
+            return 0;
         }
 
         var branchKind = (BranchKind)BranchChannel.Kind(branchHandle);
 
         if (branchKind == BranchKind.Null)
         {
-            return nint.Zero;
+            return 0;
         }
 
         if (branchKind != expectedKind)

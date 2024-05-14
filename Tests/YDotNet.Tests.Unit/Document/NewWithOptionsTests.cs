@@ -25,7 +25,7 @@ public class NewWithOptionsTests
         var doc = new Doc(options);
 
         // Assert
-        Assert.That(doc.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(doc.Handle, Is.GreaterThan(0));
         Assert.That(doc.Id, Is.EqualTo(expected: 2718));
         Assert.That(doc.Guid, Is.EqualTo("6811c0f5-320a-4a59-805d-ebe857a8b3f4"));
         Assert.That(doc.CollectionId, Is.EqualTo("sample_collection"));

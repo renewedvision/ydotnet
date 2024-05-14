@@ -33,7 +33,7 @@ internal class XmlAttributeEnumerator : IEnumerator<KeyValuePair<string, string>
     {
         var handle = XmlAttributeChannel.IteratorNext(iterator.Handle);
 
-        if (handle != nint.Zero)
+        if (handle != 0)
         {
             var native = MemoryReader.ReadStruct<XmlAttributeNative>(handle);
 

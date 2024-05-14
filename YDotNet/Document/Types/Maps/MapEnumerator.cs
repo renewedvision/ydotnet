@@ -34,7 +34,7 @@ internal class MapEnumerator : IEnumerator<KeyValuePair<string, Output>>
     {
         var handle = MapChannel.IteratorNext(iterator.Handle);
 
-        if (handle != nint.Zero)
+        if (handle != 0)
         {
             var native = MemoryReader.ReadStruct<MapEntryNative>(handle);
 

@@ -15,7 +15,7 @@ public class ReadTransactionTests
         var transaction = doc.WriteTransaction();
 
         // Assert
-        Assert.That(transaction.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(transaction.Handle, Is.GreaterThan(0));
     }
 
     [Test]

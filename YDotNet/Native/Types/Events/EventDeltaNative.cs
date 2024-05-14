@@ -21,7 +21,7 @@ internal readonly struct EventDeltaNative
     {
         get
         {
-            if (AttributesHandle == nint.Zero || AttributesLength == 0)
+            if (AttributesHandle == 0 || AttributesLength == 0)
             {
                 return Array.Empty<NativeWithHandle<MapEntryNative>>();
             }

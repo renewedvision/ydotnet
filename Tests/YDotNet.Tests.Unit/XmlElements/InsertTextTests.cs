@@ -19,7 +19,7 @@ public class InsertTextTests
         transaction.Commit();
 
         // Assert
-        Assert.That(xmlText.Handle, Is.Not.EqualTo(nint.Zero));
+        Assert.That(xmlText.Handle, Is.Not.EqualTo(0));
         Assert.That(childLength, Is.EqualTo(expected: 1));
     }
 

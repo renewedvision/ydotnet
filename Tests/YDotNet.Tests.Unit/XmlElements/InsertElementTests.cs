@@ -19,7 +19,7 @@ public class InsertElementTests
         transaction.Commit();
 
         // Assert
-        Assert.That(addedXmlElement.Handle, Is.Not.EqualTo(nint.Zero));
+        Assert.That(addedXmlElement.Handle, Is.Not.EqualTo(0));
         Assert.That(addedXmlElement.Tag, Is.EqualTo("color"));
         Assert.That(childLength, Is.EqualTo(expected: 1));
     }

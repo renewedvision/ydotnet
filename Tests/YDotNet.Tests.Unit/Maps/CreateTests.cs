@@ -15,6 +15,6 @@ public class MapTests
         var map = doc.Map("map");
 
         // Assert
-        Assert.That(map.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(map.Handle, Is.GreaterThan(0));
     }
 }

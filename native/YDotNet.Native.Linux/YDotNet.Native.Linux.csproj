@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>10.0</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +15,10 @@
     <Content Include="..\..\output\linux-armv7\libyrs.so" Pack="True" PackagePath="runtimes\linux-arm\native\%(Filename)%(Extension)" />
     <Content Include="..\..\output\linux-x64-musl\libyrs.so" Pack="True" PackagePath="runtimes\linux-x64-musl\native\%(Filename)%(Extension)" />
     <Content Include="..\..\output\linux-x64\libyrs.so" Pack="True" PackagePath="runtimes\linux-x64\native\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
 
   <ItemGroup>

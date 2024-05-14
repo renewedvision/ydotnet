@@ -12,6 +12,6 @@ public class NewTests
         var doc = new Doc();
 
         // Assert
-        Assert.That(doc.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(doc.Handle, Is.GreaterThan(0));
     }
 }

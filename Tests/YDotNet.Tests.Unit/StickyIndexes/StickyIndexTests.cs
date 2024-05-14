@@ -22,7 +22,7 @@ public class StickyIndexTests
         // Assert
         Assert.That(stickyIndexAfter, Is.Null);
         Assert.That(stickyIndexBefore, Is.Not.Null);
-        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(0));
     }
 
     [Test]
@@ -41,7 +41,7 @@ public class StickyIndexTests
         // Assert
         Assert.That(stickyIndexAfter, Is.Null);
         Assert.That(stickyIndexBefore, Is.Not.Null);
-        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(0));
     }
 
     [Test]
@@ -60,6 +60,6 @@ public class StickyIndexTests
         // Assert
         Assert.That(stickyIndexAfter, Is.Null);
         Assert.That(stickyIndexBefore, Is.Not.Null);
-        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(stickyIndexBefore.Handle, Is.GreaterThan(0));
     }
 }

@@ -15,7 +15,7 @@ public class CreateTests
         var array = doc.Array("array");
 
         // Assert
-        Assert.That(array.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(array.Handle, Is.GreaterThan(0));
         Assert.That(array.Length, Is.EqualTo(expected: 0));
     }
 }

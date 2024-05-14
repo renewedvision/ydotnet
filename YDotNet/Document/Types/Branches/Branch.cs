@@ -34,7 +34,7 @@ public abstract class Branch : UnmanagedResource
                     action(events);
                 };
 
-                return (BranchChannel.ObserveDeep(branch, nint.Zero, callback), callback);
+                return (BranchChannel.ObserveDeep(branch, 0, callback), callback);
             },
             (branch, s) => BranchChannel.UnobserveDeep(branch, s));
 #pragma warning restore CA1806 // Do not ignore method results
@@ -67,7 +67,7 @@ public abstract class Branch : UnmanagedResource
 
         var handle = BranchChannel.WriteTransaction(Handle);
 
-        if (handle == nint.Zero)
+        if (handle == 0)
         {
             ThrowHelper.PendingTransaction();
             return default!;
@@ -87,7 +87,7 @@ public abstract class Branch : UnmanagedResource
 
         var handle = BranchChannel.ReadTransaction(Handle);
 
-        if (handle == nint.Zero)
+        if (handle == 0)
         {
             ThrowHelper.PendingTransaction();
             return default!;

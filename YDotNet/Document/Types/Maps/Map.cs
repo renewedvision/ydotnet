@@ -27,7 +27,7 @@ public class Map : Branch
                 MapChannel.ObserveCallback callback = (_, eventHandle) =>
                     action(new MapEvent(eventHandle, Doc));
 
-                return (MapChannel.Observe(map, nint.Zero, callback), callback);
+                return (MapChannel.Observe(map, 0, callback), callback);
             },
             MapChannel.Unobserve);
     }
@@ -68,7 +68,7 @@ public class Map : Branch
 
         var handle = MapChannel.Get(Handle, transaction.Handle, unsafeName.Handle);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>

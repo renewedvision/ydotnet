@@ -29,7 +29,7 @@ public class Text : Branch
                 TextChannel.ObserveCallback callback = (_, eventHandle) =>
                     action(new TextEvent(eventHandle, Doc));
 
-                return (TextChannel.Observe(text, nint.Zero, callback), callback);
+                return (TextChannel.Observe(text, 0, callback), callback);
             },
             TextChannel.Unobserve);
     }
@@ -185,6 +185,6 @@ public class Text : Branch
 
         var handle = StickyIndexChannel.FromIndex(Handle, transaction.Handle, index, (sbyte)associationType);
 
-        return handle != nint.Zero ? new StickyIndex(handle) : null;
+        return handle != 0 ? new StickyIndex(handle) : null;
     }
 }

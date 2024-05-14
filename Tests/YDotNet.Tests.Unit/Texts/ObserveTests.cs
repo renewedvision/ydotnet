@@ -24,7 +24,7 @@ public class ObserveTests
 
         // Assert
         Assert.That(target, Is.Not.Null);
-        Assert.That(target.Handle, Is.Not.EqualTo(nint.Zero));
+        Assert.That(target.Handle, Is.Not.EqualTo(0));
     }
 
     [Test]

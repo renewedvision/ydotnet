@@ -22,7 +22,7 @@ internal static class MemoryWriter
 
         var memory = new Span<byte>(bufferPointer.ToPointer(), bufferLength);
 
-        Encoding.UTF8.GetBytes(value, memory);
+        Encoding.UTF8.GetBytes(value.AsSpan(), memory);
         memory[bufferLength - 1] = (byte)'\0';
 
         return bufferPointer;
@@ -82,7 +82,7 @@ internal static class MemoryWriter
     {
         public void Dispose()
         {
-            if (Handle != nint.Zero)
+            if (Handle != 0)
             {
                 Marshal.FreeHGlobal(Handle);
             }
@@ -93,14 +93,14 @@ internal static class MemoryWriter
     {
         public void Dispose()
         {
-            if (Head != nint.Zero)
+            if (Head != 0)
             {
                 Marshal.FreeHGlobal(Head);
             }
 
             foreach (var handle in Handles)
             {
-                if (handle != nint.Zero)
+                if (handle != 0)
                 {
                     Marshal.FreeHGlobal(handle);
                 }

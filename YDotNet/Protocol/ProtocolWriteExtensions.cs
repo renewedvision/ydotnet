@@ -17,7 +17,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, SyncStep1Message message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(SyncMessage.BaseIdentifier, ct).ConfigureAwait(false);
         await encoder.WriteVarUintAsync(SyncStep1Message.Identifier, ct).ConfigureAwait(false);
@@ -37,7 +37,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, SyncStep2Message message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(SyncMessage.BaseIdentifier, ct).ConfigureAwait(false);
         await encoder.WriteVarUintAsync(SyncStep2Message.Identifier, ct).ConfigureAwait(false);
@@ -57,7 +57,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, SyncUpdateMessage message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(SyncMessage.BaseIdentifier, ct).ConfigureAwait(false);
         await encoder.WriteVarUintAsync(SyncUpdateMessage.Identifier, ct).ConfigureAwait(false);
@@ -77,7 +77,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, AuthErrorMessage message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(AuthErrorMessage.Identifier, ct).ConfigureAwait(false);
         await encoder.WriteVarUintAsync(0, ct).ConfigureAwait(false);
@@ -97,7 +97,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, QueryAwarenessMessage message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(QueryAwarenessMessage.Identifier, ct).ConfigureAwait(false);
     }
@@ -114,7 +114,7 @@ public static class ProtocolWriteExtensions
     /// <exception cref="ArgumentNullException"><paramref name="message"/> is null.</exception>
     public static async Task WriteAsync(this Encoder encoder, AwarenessMessage message, CancellationToken ct)
     {
-        ArgumentNullException.ThrowIfNull(message);
+        ArgumentNullExceptionHelper.ThrowIfNull(message);
 
         await encoder.WriteVarUintAsync(AwarenessMessage.Identifier, ct).ConfigureAwait(false);
 

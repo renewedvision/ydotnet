@@ -29,7 +29,7 @@ public class Array : Branch
                 ArrayChannel.ObserveCallback callback = (_, eventHandle) =>
                     action(new ArrayEvent(eventHandle, Doc));
 
-                return (ArrayChannel.Observe(array, nint.Zero, callback), callback);
+                return (ArrayChannel.Observe(array, 0, callback), callback);
             },
             ArrayChannel.Unobserve);
     }
@@ -92,7 +92,7 @@ public class Array : Branch
 
         var handle = ArrayChannel.Get(Handle, transaction.Handle, index);
 
-        return handle != nint.Zero ? Output.CreateAndRelease(handle, Doc) : null;
+        return handle != 0 ? Output.CreateAndRelease(handle, Doc) : null;
     }
 
     /// <summary>
@@ -159,6 +159,6 @@ public class Array : Branch
 
         var handle = StickyIndexChannel.FromIndex(Handle, transaction.Handle, index, (sbyte)associationType);
 
-        return handle != nint.Zero ? new StickyIndex(handle) : null;
+        return handle != 0 ? new StickyIndex(handle) : null;
     }
 }

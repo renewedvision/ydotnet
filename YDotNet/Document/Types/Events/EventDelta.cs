@@ -25,7 +25,7 @@ public class EventDelta
             x => new Output(x.Value.ValueHandle(x.Handle), doc, isDeleted: false),
             StringComparer.Ordinal);
 
-        if (native.InsertHandle != nint.Zero)
+        if (native.InsertHandle != 0)
         {
             Insert = new Output(native.InsertHandle, doc, false);
         }

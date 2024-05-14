@@ -31,7 +31,7 @@ Therefore, you must ensure that:
 
      - If the data is contained inside the `struct`, use properties (when there's a known number of properties,
        like `nint`, `byte`, and other primitive types)
-     - If the data is outside the `struct`, use methods (for example, to read the data that's accessible via an 
+     - If the data is outside the `struct`, use methods (for example, to read the data that's accessible via an
        `nint Handle` property and has size of `uint Length`)
 
 Some objects also need the handle and the native `struct`. Therefore a new type has been introduced:
@@ -101,7 +101,7 @@ internal sealed record DisposableHandle(nint Handle) : IDisposable
 {
     public void Dispose()
     {
-        if (Handle != nint.Zero)
+        if (Handle != 0)
         {
             Marshal.FreeHGlobal(Handle);
         }

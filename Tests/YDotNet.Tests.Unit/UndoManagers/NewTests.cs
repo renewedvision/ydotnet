@@ -21,7 +21,7 @@ public class NewTests
             });
 
         // Assert
-        Assert.That(undoManager.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(undoManager.Handle, Is.GreaterThan(0));
     }
 
     [Test]
@@ -35,6 +35,6 @@ public class NewTests
         var undoManager = new UndoManager(doc, text);
 
         // Assert
-        Assert.That(undoManager.Handle, Is.GreaterThan(nint.Zero));
+        Assert.That(undoManager.Handle, Is.GreaterThan(0));
     }
 }

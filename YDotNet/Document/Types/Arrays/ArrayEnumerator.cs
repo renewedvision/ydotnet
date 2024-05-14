@@ -35,7 +35,7 @@ internal class ArrayEnumerator : IEnumerator<Output>
     {
         var handle = ArrayChannel.IteratorNext(iterator.Handle);
 
-        if (handle != nint.Zero)
+        if (handle != 0)
         {
             current = Output.CreateAndRelease(handle, iterator.Doc);
             return true;
