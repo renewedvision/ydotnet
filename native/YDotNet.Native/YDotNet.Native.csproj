@@ -9,8 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YDotNet.Native.Linux\YDotNet.Native.Linux.csproj" />
-    <ProjectReference Include="..\YDotNet.Native.MacOS\YDotNet.Native.MacOS.csproj" />
     <ProjectReference Include="..\YDotNet.Native.Win32\YDotNet.Native.Win32.csproj" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
