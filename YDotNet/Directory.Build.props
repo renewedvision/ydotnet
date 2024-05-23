@@ -1,4 +1,6 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))" />
+
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)../ext/ArgumentNullExceptionHelper.cs" Visible="true" />
     <Compile Include="$(MSBuildThisFileDirectory)../ext/EncodingExtensions.cs" Visible="true" />

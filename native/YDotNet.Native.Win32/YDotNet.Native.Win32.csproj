@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RepositoryUrl>https://github.com/renewedvision/ydotnet</RepositoryUrl>
+    <PackageId>RenewedVision.YDotNet.Native.Win32</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
